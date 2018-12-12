@@ -7,13 +7,23 @@ const app = express();
 const privateKey = 'b97911ba2f62586d199e7edb75d1885fd3f4ee4d';
 const publicKey = 'fca2d1a0f86099c3f43128d7d1c71fb5';
 const hash = utils.md5(1+privateKey+publicKey);
+console.log(hash);
 app.get('/data',(req,res)=>{
     axios({
         method:'get',
-        url:'http://gateway.marvel.com/v1/public/comics?ts=1&apikey=fca2d1a0f86099c3f43128d7d1c71fb5&'+hash
+        url:'http://gateway.marvel.com/v1/public/comics',
+        params:{
+            "format":'comic',
+            "ts":1,
+            "apikey":publicKey,
+            "hash":hash
+        }
     }).then(res=>{
-        console.log(res);
+        console.log(res.data.data.results);
+    }).catch(e=>{
+        console.log(e);
     });
+    console.log(res);
 });
 // app.get('https://gateway.marvel.com:443/v1/public/characters?apikey=fca2d1a0f86099c3f43128d7d1c71fb5',(req,res)=>{
 //     console.log(res);
