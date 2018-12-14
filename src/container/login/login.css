@@ -1,6 +1,14 @@
+form{
+    width: 255px;
+    margin: 0 auto
+}
 .input-item{
     width: 255px;
+    height: 40px;
+    margin-bottom:10px;
+    text-indent: 20px;
     background: #e5e5e5;
+    border: 0
 }
 .btn{
     position: relative;

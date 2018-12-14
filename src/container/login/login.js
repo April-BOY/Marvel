@@ -7,10 +7,10 @@ class Login extends React.Component{
         return (
             <div>
                 <Logo></Logo>
-                <List>
-                    <InputItem className="input-item">用户名</InputItem>
-                    <InputItem>密码</InputItem>
-                </List>
+                <form>
+                    <input className="input-item" placeholder="用户名"></input>
+                    <input className="input-item" placeholder="密码"></input>
+                </form>
                 <a className="btn" href="#">
                     <div className="inner-btn">
                         <span>登录</span>
